@@ -17,9 +17,9 @@ type DashboardProps = {
 
 export function Dashboard({ setSize, setBorder }: DashboardProps) {
   return (
-    <div className='bg-gradient-to-r from-violet-700 to-indigo-700 text-white rounded-md p-4 mb-10 flex items-center justify-center flex-col gap-10'>
-      <h1 className='text-xl'>
-        created by{' '}
+    <div className='bg-gradient-to-r from-violet-700 to-indigo-700 text-white rounded-md p-6 mb-10 flex items-center justify-center flex-col gap-6'>
+      <div className='flex items-center justify-center gap-4 flex-wrap text-xl'>
+        <h1>created by </h1>
         <Link
           href={'https://github.com/jessicasantosb'}
           target='_blank'
@@ -27,9 +27,9 @@ export function Dashboard({ setSize, setBorder }: DashboardProps) {
         >
           Jessica Bandeira
         </Link>
-      </h1>
+      </div>
 
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center justify-center flex-wrap gap-4'>
         <Select
           onValueChange={(size) => setSize(size as AvatarVariants['size'])}
         >

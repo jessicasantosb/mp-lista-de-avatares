@@ -16,7 +16,7 @@ export function Users() {
     <div className='w-full'>
       <Dashboard setSize={setSize} setBorder={setBorder} />
 
-      <div className='flex flex-wrap [&>div]:-ml-3 ml-3 space-x-0 [&>div]:mt-3 -mt-3 '>
+      <div className='flex flex-wrap [&>div]:-ml-3 ml-3 [&>div]:mt-3 -mt-3 '>
         {users.map(({ userName, imgUrl, fallbackText }) => {
           return (
             <Avatar
