@@ -12,9 +12,10 @@ import Link from 'next/link';
 export function Dashboard({ setSize, setBorder }: any) {
   return (
     <div className='bg-gradient-to-r from-violet-700 to-indigo-700 text-white rounded-md p-4 mb-10 flex items-center justify-center flex-col gap-10'>
-      <h1>
+      <h1 className='text-xl'>
         created by{' '}
-        <Link href={'https://github.com/jessicasantosb'} target='_blank'>
+        <Link href={'https://github.com/jessicasantosb'} target='_blank'
+        className='underline'>
           Jessica Bandeira
         </Link>
       </h1>

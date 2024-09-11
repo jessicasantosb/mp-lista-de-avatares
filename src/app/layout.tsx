@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Oxygen } from 'next/font/google';
+import { Roboto_Mono } from 'next/font/google';
 import './globals.css';
 
-const oxygem = Oxygen({ weight: ['300', '400', '700'], subsets: ['latin'] });
+const roboto = Roboto_Mono({
+  weight: ['300', '400', '700'],
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Lista de Avatares',
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={oxygem.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }
