@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { Dispatch, SetStateAction } from 'react';
+
 import { AvatarBorderVariants, AvatarVariants } from '@/components/ui/avatar';
 import {
   Select,
@@ -6,16 +9,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import Link from 'next/link';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function Dashboard({ setSize, setBorder }: any) {
+type DashboardProps = {
+  setSize: Dispatch<SetStateAction<AvatarVariants['size']>>;
+  setBorder: Dispatch<SetStateAction<AvatarBorderVariants['border']>>;
+};
+
+export function Dashboard({ setSize, setBorder }: DashboardProps) {
   return (
     <div className='bg-gradient-to-r from-violet-700 to-indigo-700 text-white rounded-md p-4 mb-10 flex items-center justify-center flex-col gap-10'>
       <h1 className='text-xl'>
         created by{' '}
-        <Link href={'https://github.com/jessicasantosb'} target='_blank'
-        className='underline'>
+        <Link
+          href={'https://github.com/jessicasantosb'}
+          target='_blank'
+          className='underline'
+        >
           Jessica Bandeira
         </Link>
       </h1>
