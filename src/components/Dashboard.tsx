@@ -23,7 +23,7 @@ export function Dashboard({ setSize, setBorder }: DashboardProps) {
         <Link
           href={'https://github.com/jessicasantosb'}
           target='_blank'
-          className='underline'
+          className='underline underline-offset-4 hover:text-violet-100'
         >
           Jessica Bandeira
         </Link>
