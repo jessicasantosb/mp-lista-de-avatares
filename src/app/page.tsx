@@ -2,7 +2,7 @@ import { Users } from "@/components/Users";
 
 export default function Home() {
   return (
-    <section className='flex min-h-screen flex-col items-center justify-center px-10 bg-purple-800'>
+    <section className='min-h-screen flex flex-col items-center p-10 bg-gradient-to-r from-violet-600 to-indigo-600'>
       <Users />
     </section>
   );

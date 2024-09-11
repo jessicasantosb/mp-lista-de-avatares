@@ -4,6 +4,7 @@ import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import { cva, VariantProps } from 'class-variance-authority';
 
 const AvatarRoot = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
@@ -47,16 +48,55 @@ const AvatarFallback = React.forwardRef<
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
+const avatarRootVariants = cva('', {
+  variants: {
+    size: {
+      default: 'h-10 w-10',
+      sm: 'h-8 w-8',
+      lg: 'h-20 w-20',
+      xl: 'h-24 w-24',
+    },
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+});
+
+const avatarBorderVariants = cva('absolute rounded-full bg-gradient-to-r ', {
+  variants: {
+    size: {
+      default: '-inset-0.5',
+      sm: '-inset-0.5',
+      lg: '-inset-1',
+      xl: '-inset-1',
+    },
+    border: {
+      none: 'inset-0',
+      default: 'from-[#78d993] to-[#e087ff]',
+      blue: 'from-blue-500 via-sky-700 to-sky-200',
+    },
+  },
+});
+
+type AvatarVariants = VariantProps<typeof avatarRootVariants>;
+type AvatarBorderVariants = VariantProps<typeof avatarBorderVariants>;
+
 type AvatarProps = {
   imgUrl: string;
   userName: string;
   fallbackText: string;
 };
 
-const Avatar = ({ imgUrl, userName, fallbackText }: AvatarProps) => (
+const Avatar = ({
+  imgUrl,
+  userName,
+  fallbackText,
+  size,
+  border,
+}: AvatarProps & AvatarVariants & AvatarBorderVariants) => (
   <div className='relative inline-block'>
-    <div className='absolute rounded-full bg-gradient-to-r -inset-0.5 from-[#78d993] to-[#e087ff]' />
-    <AvatarRoot>
+    <div className={cn(avatarBorderVariants({ size, border }))} />
+    <AvatarRoot className={cn(avatarRootVariants({ size }))}>
       <AvatarImage
         alt={`Avatar for ${userName}`}
         src={imgUrl}
@@ -71,3 +111,4 @@ const Avatar = ({ imgUrl, userName, fallbackText }: AvatarProps) => (
 Avatar.displayName = 'Avatar';
 
 export { Avatar };
+export type { AvatarBorderVariants, AvatarVariants };
